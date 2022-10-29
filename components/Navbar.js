@@ -8,19 +8,46 @@ import NavDropdown from './NavDropdown'
 import classes from './Navbar.module.css'
 
 const poppins = Poppins({ weight: '400' })
+const compartimenteLinks = [
+    { text: 'Fond Forestier', slug: 'fond-forestier' },
+    { text: 'Paza si Protectie', slug: 'paza-si-protectie' },
+    { text: 'Impaduriri', slug: 'impaduriri' },
+    { text: 'Compartiment Cinegetic', slug: 'compartiment-cinegetic' }
+]
+const anunturiLinks = [
+    { text: 'Licitatii masa lemnoasa fasonata', slug: 'licitatii-masa-lemnoasa-fasonata' },
+    { text: 'Licitatii masa lemnoasa', slug: 'licitatii-masa-lemnoasa' },
+    { text: 'Achizitii publice', slug: 'achizitii-publice' },
+    { text: 'Cariere', slug: 'cariere' },
+    { text: 'Informatii de interes public', slug: 'informatii-de-interes-public' },
+    { text: 'Diverse', slug: 'diverse' }
+]
 
 function Navbar() {
-    const [isHovered, setIsHovered] = useState(false)
+    const [isCompartimenteHovered, setIsCompartimenteHovered] = useState(false)
+    const [isAnunturiHovered, setIsAnunturiHovered] = useState(false)
 
-    const onHoverHandler = () => setIsHovered(true)
-    const leaveHoverHandler = () => setIsHovered(false)
+    const onHoverHandler = (e) => {
+        // e.target.innerText === 'Compartimente' ? setIsCompartimenteHovered(true) : setIsAnunturiHovered(true)
+        if (e.target.innerText === 'Compartimente') {
+            setIsCompartimenteHovered(true)
+        }
+
+        if (e.target.innerText === 'Anunturi') {
+            setIsAnunturiHovered(true)
+        }
+    }
+    const leaveHoverHandler = (e) => {
+        setIsCompartimenteHovered(false)
+        setIsAnunturiHovered(false)
+    }
 
     return (
         <>
             <nav className={`${classes.nav} ${poppins.className}`}>
                 <div className={classes.logoContainer}>
                     <Link href='/'>
-                        <Image src='/images/os-ciucas-logo.png' alt='Logo Ocol Silvic Ciucas' width='90' height='90' />
+                        <Image src='/images/os-ciucas-logo.png' alt='Logo Ocol Silvic Ciucas' width='80' height='80' priority />
                     </Link>
                 </div>
 
@@ -37,13 +64,14 @@ function Navbar() {
                                 Compartimente
                                 <BsArrowDownCircle />
                             </Link>
-                            {isHovered && <NavDropdown onMouseLeave={leaveHoverHandler} />}
+                            {isCompartimenteHovered && <NavDropdown links={compartimenteLinks} onMouseLeave={leaveHoverHandler} />}
                         </li>
-                        <li>
+                        <li onMouseEnter={onHoverHandler}>
                             <Link href='/anunturi' className='flex justify-between gap-1 align items-center'>
                                 Anunturi
                                 <BsArrowDownCircle />
                             </Link>
+                            {isAnunturiHovered && <NavDropdown links={anunturiLinks} onMouseLeave={leaveHoverHandler} />}
                         </li>
                         <li>
                             <Link href='/galerie'>Galerie</Link>
