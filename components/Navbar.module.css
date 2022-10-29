@@ -1,3 +1,40 @@
-.dark {
-    background-color: black;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 5rem;
+    padding-block: 1rem;
+    background-color: #004200;
+    /* color: #D7C9AA; */
+    color: #F0F3F5;
+    position: relative;
+}
+
+.linksContainer__links {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-size: 1.1rem;
+}
+
+.linksContainer__links li {
+    padding-inline: 1rem;
+}
+
+.linksContainer__links a:hover {
+    color: #D7C9AA;
+}
+
+/* Dropdown css */
+
+.navDropdown {
+    position: absolute;
+    background-color: #F0F3F5;
+    border: 1px solid #004200;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    top: 80px;
+    color: #000;
 }
