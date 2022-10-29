@@ -3,8 +3,12 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main>
-      OS Ciucas
-    </main>
+    <>
+      <Head></Head>
+      <main>
+        OS Ciucas
+      </main>
+    </>
+
   )
 }
