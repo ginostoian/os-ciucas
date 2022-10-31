@@ -1,0 +1,33 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    background-image: url('/images/padure-4.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.heroTitle {
+    color: #F0F3F5;
+    font-size: 3rem;
+    text-shadow: 1px 0px 18px rgba(0, 0, 0, 0.84);
+}
+
+.heroBtn {
+    background-color: #F0F3F5;
+    color: #004200;
+    padding: .6rem 2rem;
+    border-radius: 18px;
+    transition: color .2s;
+    transition: background-color .2s;
+}
+
+.heroBtn:hover {
+    background-color: #004200;
+    color: #F0F3F5;
+}

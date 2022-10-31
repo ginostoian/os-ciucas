@@ -1,4 +1,18 @@
 .footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #004200;
     color: #F0F3F5;
+    padding: 2rem;
+}
+
+.creatorLink {
+    color: antiquewhite;
+    border-bottom: 1px solid antiquewhite;
+    padding-bottom: 2px;
 }
