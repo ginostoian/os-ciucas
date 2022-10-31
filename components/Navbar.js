@@ -3,9 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Poppins } from '@next/font/google'
 import { BsArrowDownCircle } from 'react-icons/bs'
+import { HiMenuAlt1 } from 'react-icons/hi'
 
 import NavDropdown from './NavDropdown'
 import classes from './Navbar.module.css'
+import MobileNavbar from './MobileNavbar'
 
 const poppins = Poppins({ weight: '400' })
 const compartimenteLinks = [
@@ -26,6 +28,7 @@ const anunturiLinks = [
 function Navbar() {
     const [isCompartimenteHovered, setIsCompartimenteHovered] = useState(false)
     const [isAnunturiHovered, setIsAnunturiHovered] = useState(false)
+    const [showMobileNav, setShowMobileNav] = useState(false)
 
     const onHoverHandler = (e) => {
         // e.target.innerText === 'Compartimente' ? setIsCompartimenteHovered(true) : setIsAnunturiHovered(true)
@@ -42,6 +45,9 @@ function Navbar() {
         setIsAnunturiHovered(false)
     }
 
+    const openMobileNavHandler = () => setShowMobileNav(true)
+    const closeMobileNavHandler = () => setShowMobileNav(false)
+
     return (
         <>
             <nav className={`${classes.nav} ${poppins.className}`}>
@@ -49,6 +55,10 @@ function Navbar() {
                     <Link href='/'>
                         <Image src='/images/os-ciucas-logo.png' alt='Logo Ocol Silvic Ciucas' width='80' height='80' priority />
                     </Link>
+                </div>
+
+                <div className={classes.navHamburger} onClick={openMobileNavHandler}>
+                    <HiMenuAlt1 />
                 </div>
 
                 <div className={classes.linksContainer}>
@@ -81,6 +91,8 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
+
+                {showMobileNav && <MobileNavbar onClose={closeMobileNavHandler} />}
             </nav >
         </>
     )
