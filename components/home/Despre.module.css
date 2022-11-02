@@ -1,0 +1,52 @@
+.container {
+    max-width: 90%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.mainContainerLeft {
+    width: 50%;
+}
+
+.mainContainerLeft img {
+    border-radius: 20px;
+}
+
+.mainContainerRight {
+    width: 50%;
+}
+
+.mainContainerRightText {
+    letter-spacing: .5px;
+    line-height: 25px;
+}
+
+.btn {
+    background-color: #004200;
+    color: #F0F3F5;
+    padding: .6rem 2rem;
+    border-radius: 18px;
+    transition: color .2s;
+    transition: background-color .2s;
+    max-width: max-content;
+    margin-top: 2rem;
+}
+
+.btn:hover {
+    background-color: #F0F3F5;
+    color: #004200;
+}
