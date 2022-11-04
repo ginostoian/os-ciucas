@@ -1,5 +1,3 @@
-import Link from "next/link"
-import Image from "next/image"
 import { Poppins } from "@next/font/google"
 import { BsFillTreeFill } from 'react-icons/bs'
 import { GiLindenLeaf } from 'react-icons/gi'

@@ -1,0 +1,60 @@
+.container {
+    max-width: 90%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #004200;
+    color: #F0F3F5;
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.contactMethod {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.contactIcon {
+    font-size: 1.3rem;
+}
+
+@media(min-width: 500px) {
+    .mainContent {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contactMethod {
+        width: 45%;
+    }
+}
+
+@media(min-width: 800px) {
+    .mainContent {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 2rem 1rem;
+    }
+
+    .contactMethod {
+        width: auto;
+        font-size: 1.2rem;
+    }
+}

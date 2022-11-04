@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import ContactSection from '../components/ContactSection'
 import Despre from '../components/home/Despre'
 import Organizare from '../components/home/Organizare'
 import QuickInfo from '../components/home/QuickInfo'
@@ -16,6 +17,7 @@ export default function Home() {
         <Despre />
         <Organizare />
         <QuickInfo />
+        <ContactSection />
       </main>
     </>
 
