@@ -12,22 +12,25 @@
 
 .mainContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
     margin-top: 3rem;
 }
 
+.mainContainerLeft,
+.mainContainerRight {
+    width: 90%;
+}
+
 .mainContainerLeft {
-    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .mainContainerLeft img {
     border-radius: 20px;
-}
-
-.mainContainerRight {
-    width: 50%;
 }
 
 .mainContainerRightText {
@@ -49,4 +52,16 @@
 .btn:hover {
     background-color: #F0F3F5;
     color: #004200;
+}
+
+@media(min-width: 1000px) {
+
+    .mainContainerLeft,
+    .mainContainerRight {
+        width: 45%;
+    }
+
+    .mainContainer {
+        gap: 3rem;
+    }
 }
