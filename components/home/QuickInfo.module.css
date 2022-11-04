@@ -1,0 +1,54 @@
+.container {
+    max-width: 90%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
+
+.mainContentContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contentContainer {
+    margin-bottom: 2.5rem;
+    letter-spacing: .8px;
+}
+
+.contentIcon {
+    display: flex;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contentTitle {
+    font-size: 1.5rem;
+    margin-bottom: .6rem;
+}
+
+.contentText {
+    color: #3e3e3e;
+}
+
+@media(min-width: 600px) {
+    .contentContainer {
+        width: 45%;
+        justify-content: center;
+    }
+
+    .mainContentContainer {
+        gap: 3rem;
+    }
+}
+
+@media(min-width: 1200px) {
+    .contentContainer {
+        width: 30%;
+    }
+}
