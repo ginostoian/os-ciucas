@@ -16,6 +16,7 @@
     color: #F0F3F5;
     font-size: 3rem;
     text-shadow: 1px 0px 18px rgba(0, 0, 0, 0.84);
+    text-align: center;
 }
 
 .heroBtn {
@@ -25,6 +26,7 @@
     border-radius: 18px;
     transition: color .2s;
     transition: background-color .2s;
+    margin-bottom: 1rem;
 }
 
 .heroBtn:hover {
