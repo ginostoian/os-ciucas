@@ -13,7 +13,7 @@ export default function Home() {
         <title>Ocolul Silvic Ciucas</title>
       </Head>
       <main>
-        <HomeHero />
+        <HomeHero title='Ocolul Silvic Ciucas R.A.' />
         <Despre />
         <Organizare />
         <QuickInfo />
