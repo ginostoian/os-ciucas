@@ -1,4 +1,4 @@
-export default conducere = [
+const conducere = [
     {
         name: 'Szakal Andras-Zsolt',
         position: 'Director Ocolul Silvic Ciucas, Membru Consiliu Administratie',
@@ -26,3 +26,5 @@ export default conducere = [
         cv: null
     }
 ]
+
+export default conducere

@@ -21,7 +21,7 @@ const Organizare = () => {
                     </div>
 
                     <div className={classes.mainContainerCardRight}>
-                        <Link href='/'>
+                        <Link href='/conducere'>
                             <h3 className={classes.cardTitle}>Conducere</h3>
                             <p className={classes.cardText}>Membrii consililului de administratie</p>
                         </Link>
