@@ -20,7 +20,7 @@ const ContactForm = () => {
                     </div>
 
                     <div className={classes.formRight}>
-                        <textarea name="mesaj" placeholder="Mesaj" id="" cols="30" rows="10" required>
+                        <textarea name="mesaj" placeholder="Mesaj" id="mesaj" className={classes.mesaj} cols="30" rows="10" required>
 
                         </textarea>
                     </div>
