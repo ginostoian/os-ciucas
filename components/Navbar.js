@@ -11,10 +11,10 @@ import MobileNavbar from './MobileNavbar'
 
 const poppins = Poppins({ weight: '400' })
 const compartimenteLinks = [
-    { text: 'Fond Forestier', slug: 'fond-forestier' },
-    { text: 'Paza si Protectie', slug: 'paza-si-protectie' },
-    { text: 'Impaduriri', slug: 'impaduriri' },
-    { text: 'Compartiment Cinegetic', slug: 'compartiment-cinegetic' }
+    { text: 'Fond Forestier', slug: 'compartimente/fond-forestier' },
+    { text: 'Paza si Protectie', slug: 'compartimente/paza-si-protectie' },
+    { text: 'Impaduriri', slug: 'compartimente/impaduriri' },
+    { text: 'Compartiment Cinegetic', slug: 'compartimente/compartiment-cinegetic' }
 ]
 const anunturiLinks = [
     { text: 'Licitatii masa lemnoasa fasonata', slug: 'licitatii-masa-lemnoasa-fasonata' },
