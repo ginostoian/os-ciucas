@@ -17,12 +17,12 @@ const compartimenteLinks = [
     { text: 'Compartiment Cinegetic', slug: 'compartimente/compartiment-cinegetic' }
 ]
 const anunturiLinks = [
-    { text: 'Licitatii masa lemnoasa fasonata', slug: 'licitatii-masa-lemnoasa-fasonata' },
-    { text: 'Licitatii masa lemnoasa', slug: 'licitatii-masa-lemnoasa' },
-    { text: 'Achizitii publice', slug: 'achizitii-publice' },
+    { text: 'Licitatii masa lemnoasa fasonata', slug: 'anunturi/licitatii-masa-lemnoasa-fasonata' },
+    { text: 'Licitatii masa lemnoasa', slug: 'anunturi/licitatii-masa-lemnoasa' },
+    { text: 'Achizitii publice', slug: 'anunturi/achizitii-publice' },
     { text: 'Cariere', slug: 'cariere' },
-    { text: 'Informatii de interes public', slug: 'informatii-de-interes-public' },
-    { text: 'Diverse', slug: 'diverse' }
+    { text: 'Informatii de interes public', slug: 'anunturi/informatii-de-interes-public' },
+    { text: 'Diverse', slug: 'anunturi/diverse' }
 ]
 
 function Navbar() {
