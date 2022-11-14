@@ -21,7 +21,7 @@ const Despre = () => {
                     <p className={classes.mainContainerRightText}>
                         Ocolul Silvic Ciucaș R.A. are ca obiect de activitate aplicarea legilor și strategiei nationale în domeniul silviculturii, actionând pentru apărarea, conservarea si dezvoltarea durabilă a fondului forestier proprietate publică a comunei Tărlungeni, fondul forestier proprietate privată a persoanelor juridice și fizice, în conformitare cu prevederile legale în vigoare.
                     </p>
-                    <Link href='/contact'>
+                    <Link href='/despre-noi'>
                         <div className={classes.btn}>Citeste mai mult</div>
                     </Link>
                 </div>
