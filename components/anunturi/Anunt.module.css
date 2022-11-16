@@ -1,0 +1,30 @@
+.anuntContainer {
+    max-width: 400px;
+    background-color: #004200;
+    color: #F0F3F5;
+    padding: 2rem;
+    border-radius: 18px;
+}
+
+.anuntTitle {
+    font-size: 1.2rem;
+    margin-bottom: .6rem;
+}
+
+.anuntDescription {
+    color: rgb(233, 233, 233);
+    margin-bottom: 1.4rem;
+}
+
+.anuntFooter {
+    color: rgb(202, 202, 202);
+    display: flex;
+    justify-content: space-between;
+}
+
+.anuntLink {
+    background-color: #F0F3F5;
+    color: #004200;
+    padding: .2rem 1rem;
+    border-radius: 18px;
+}
