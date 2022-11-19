@@ -4,6 +4,9 @@
     color: #F0F3F5;
     padding: 2rem;
     border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .anuntTitle {
