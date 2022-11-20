@@ -29,19 +29,13 @@ const AnunturiBody = (props) => {
     }, [])
 
     return (
-        <section className={classes.container}>
+        <section className={`${classes.container} ${poppins.className}`}>
             <h2 className={`${classes.title} ${poppinsBold.className}`}>Toate anunturile</h2>
 
             <div className={classes.anunturiContainer}>
                 {anunturi.map((doc) => {
                     return <Anunt key={doc.titlu} anunt={doc} />
                 })}
-                {/* <Anunt />
-                <Anunt />
-                <Anunt />
-                <Anunt />
-                <Anunt />
-                <Anunt /> */}
             </div>
         </section>
     )

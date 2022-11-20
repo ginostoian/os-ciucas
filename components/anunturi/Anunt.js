@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useState } from "react"
 import { Poppins } from "@next/font/google"
 
 import classes from './Anunt.module.css'
@@ -7,6 +8,8 @@ const poppins = Poppins({ weight: '400' })
 const poppinsBold = Poppins({ weight: '700' })
 
 const Anunt = ({ anunt }) => {
+    const [isClicked, setIsClicked] = useState(false)
+
     return (
         <div className={`${classes.anuntContainer} ${poppins.className}`}>
             <h3 className={`${classes.anuntTitle} ${poppinsBold.className}`}>{anunt.titlu}</h3>

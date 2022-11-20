@@ -1,5 +1,7 @@
 .anuntContainer {
-    max-width: 400px;
+    max-width: 45%;
+    width: 400px;
+    min-width: 300px;
     background-color: #004200;
     color: #F0F3F5;
     padding: 2rem;
