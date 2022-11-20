@@ -21,6 +21,11 @@
     margin-bottom: 1.4rem;
 }
 
+.anuntTitle:hover,
+.anuntDescription:hover {
+    cursor: pointer;
+}
+
 .anuntFooter {
     color: rgb(202, 202, 202);
     display: flex;

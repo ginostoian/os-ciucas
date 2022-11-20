@@ -12,8 +12,8 @@ const Anunt = ({ anunt }) => {
 
     return (
         <div className={`${classes.anuntContainer} ${poppins.className}`}>
-            <h3 className={`${classes.anuntTitle} ${poppinsBold.className}`}>{anunt.titlu}</h3>
-            <p className={classes.anuntDescription}>{anunt.descriere}</p>
+            <h3 onClick={() => setIsClicked(true)} className={`${classes.anuntTitle} ${poppinsBold.className}`}>{anunt.titlu}</h3>
+            <p onClick={() => setIsClicked(true)} className={classes.anuntDescription}>{anunt.descriere}</p>
             <div className={classes.anuntFooter}>
                 <p className={classes.anuntDate}>{anunt.data}</p>
                 <a target='_blank' rel='noreferrer' className={classes.anuntLink} href="https://www.osbucegipiatracraiuluiciucas.ro/wp-content/uploads/2022/10/Anunt-17.10.2022.pdf">Descarca</a>
