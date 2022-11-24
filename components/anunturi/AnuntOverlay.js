@@ -1,9 +1,21 @@
-// This should appear on screen when user clicks to see the details of the announcement
+import { micromark } from 'micromark'
+import ReactMarkdown from 'react-markdown'
+import { CgCloseR } from 'react-icons/cg'
 
-const AnuntOverlay = () => {
+import classes from './AnuntOverlay.module.css'
+
+const AnuntOverlay = ({ text, onClose }) => {
+
     return (
-        <div>
-
+        <div className={classes.anuntOverlay}>
+            <div className={classes.anuntButtonContainer} onClick={onClose}>
+                <CgCloseR />
+            </div>
+            <div>
+                <ReactMarkdown>
+                    {text}
+                </ReactMarkdown>
+            </div>
         </div>
     )
 }

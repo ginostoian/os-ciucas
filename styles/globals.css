@@ -19,3 +19,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ol {
+  list-style: lower-latin;
+}
+
+h1 {
+  font-size: 2rem;
+}
