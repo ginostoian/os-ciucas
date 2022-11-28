@@ -1,5 +1,5 @@
 .anuntOverlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
@@ -8,15 +8,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: fit-content;
+    min-height: 100%;
     width: 100%;
     background-color: #D7C9AA;
     color: #004200;
     z-index: 600;
+    overflow: scroll;
 }
 
 .anuntButtonContainer {
     align-self: flex-end;
     font-size: 3rem;
-    margin-right: 3rem
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.adContainer {
+    width: 650px;
+    max-width: 80%;
+}
+
+.adContainer h2 {
+    font-size: 1.5rem;
 }
