@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { getDocs, collection } from "firebase/firestore"
 import { Poppins } from "@next/font/google"
+import { useRouter } from "next/router"
 
 import { db } from "../../firebase"
 
@@ -10,12 +11,14 @@ const poppins = Poppins({ weight: '400' })
 const poppinsBold = Poppins({ weight: '700' })
 
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [enteredUsername, setEnteredUsername] = useState('')
+    const [enteredPassword, setEnteredPassword] = useState('')
     const [users, setUsers] = useState([])
 
-    const handleUsernameChange = (e) => setUsername(e.target.value)
-    const handlePasswordChange = (e) => setPassword(e.target.value)
+    const router = useRouter()
+
+    const handleUsernameChange = (e) => setEnteredUsername(e.target.value)
+    const handlePasswordChange = (e) => setEnteredPassword(e.target.value)
 
     useEffect(() => {
         const getData = async () => {
@@ -30,21 +33,50 @@ const Login = () => {
         getData()
     }, [])
 
-    console.log(users)
+    const setWithExpiry = (key, value, ttl) => {
+        const now = new Date()
+        // `item` is an object which contains the original value
+        // as well as the time when it's supposed to expire
+        const item = {
+            value: value,
+            expiry: now.getTime() + ttl,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const { username, password } = users[0]
+
+        // check if user typed in credentials
+        if (!enteredUsername) return
+        if (!enteredPassword) return
+
+        if (enteredUsername === username) {
+            if (enteredPassword === password) {
+                setWithExpiry('isLoggedIn', true, 43200000)
+                setEnteredPassword('')
+                setEnteredUsername('')
+                router.push('/admin')
+            } else {
+                alert('wrong credentials')
+            }
+        }
+    }
 
     return (
         <section className={`${poppins.className} ${classes.container}`}>
             <h2 className={classes.title}>Autentificare</h2>
 
-            <form className={classes.signInForm}>
+            <form onSubmit={handleSubmit} className={classes.signInForm}>
                 <div className={classes.inputGroup}>
                     <label htmlFor="username">Username</label>
-                    <input onChange={handleUsernameChange} type="text" id="username" />
+                    <input value={enteredUsername} onChange={handleUsernameChange} type="text" id="username" />
                 </div>
 
                 <div className={classes.inputGroup}>
                     <label htmlFor="password">Password</label>
-                    <input onChange={handlePasswordChange} type="password" id="password" />
+                    <input value={enteredPassword} onChange={handlePasswordChange} type="password" id="password" />
                 </div>
 
                 <div className={classes.inputGroup}>
