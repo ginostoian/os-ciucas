@@ -17,3 +17,45 @@
     gap: 1rem;
     justify-content: center;
 }
+
+.signInForm {
+    max-width: 400px;
+    margin-inline: auto;
+    border: 1px solid #004200;
+    border-radius: 18px;
+    padding-block: 3rem;
+    margin-bottom: 5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.inputGroup:last-of-type {
+    margin-bottom: 0;
+}
+
+.inputGroup input {
+    border: 1px solid black;
+}
+
+.inputGroup label {
+    margin-bottom: .45rem;
+}
+
+.inputGroup button {
+    border: 1px solid #004200;
+    border-radius: 18px;
+    padding: .7rem 2rem;
+}
+
+.inputGroup button:hover {
+    cursor: pointer;
+    border: 1px solid #fff;
+    background-color: #004200;
+    color: #fff;
+}
