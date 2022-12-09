@@ -9,7 +9,7 @@ const poppinsBold = Poppins({ weight: '700' })
 const LoginPage = () => {
     return (
         <main>
-            <HomeHero title='Login in dashboard' height='40vh' />
+            <HomeHero title='Go to dashboard' height='40vh' />
             <Login />
         </main>
     )
