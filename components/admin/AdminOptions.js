@@ -19,6 +19,8 @@ const AdminOptions = ({ onLogout }) => {
         }
     }
 
+    const handleNewAnnouncement = () => router.push('/admin/publica-anunt')
+
     return (
         <div className={`${poppins.className} ${classes.container}`}>
             <h2 className={`${poppinsBold.className} ${classes.title}`}>Actiuni</h2>
@@ -28,7 +30,7 @@ const AdminOptions = ({ onLogout }) => {
                     Log out
                 </div>
 
-                <div className={classes.optionContainer}>
+                <div className={classes.optionContainer} onClick={handleNewAnnouncement}>
                     Publica anunt
                 </div>
             </div>
