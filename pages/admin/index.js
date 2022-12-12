@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 
 import HomeHero from "../../components/HomeHero"
+import AdminOptions from "../../components/admin/AdminOptions"
 
 const AdminPage = () => {
     const [loginStatus, setLoginStatus] = useState(null)
@@ -31,12 +32,11 @@ const AdminPage = () => {
         setLoginStatus(getWithExpiry('isLoggedIn'))
     }, [router])
 
-    console.log(loginStatus)
-
     if (loginStatus === true) {
         return (
             <main>
                 <HomeHero title={'Panou de control'} height={'40vh'} />
+                <AdminOptions onLogout={setLoginStatus} />
             </main>
         )
     }
