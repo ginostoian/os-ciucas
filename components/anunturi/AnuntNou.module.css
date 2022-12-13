@@ -19,3 +19,8 @@
     gap: 3rem;
     margin-top: 3rem;
 }
+
+.editorContainer {
+    margin-top: 3rem;
+    min-width: 400px;
+}
