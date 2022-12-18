@@ -24,3 +24,18 @@
     margin-top: 3rem;
     min-width: 400px;
 }
+
+.postAdButton {
+    display: block;
+    margin: 2rem auto;
+    border: 1px solid #004200;
+    border-radius: 26px;
+    padding: 1rem 2.5rem;
+    transition: background-color .3s;
+}
+
+.postAdButton:hover {
+    cursor: pointer;
+    background-color: #004200;
+    color: #fff;
+}
