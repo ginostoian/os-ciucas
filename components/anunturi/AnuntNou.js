@@ -54,7 +54,13 @@ const AnuntNou = () => {
 
     const postAd = (e) => {
         e.preventDefault()
-        console.log(date, title, description, value)
+        const postData = {
+            date,
+            title,
+            description,
+            value
+        }
+        addAnnouncement(postData)
         setDate('')
         setDescription('')
         setTitle('')

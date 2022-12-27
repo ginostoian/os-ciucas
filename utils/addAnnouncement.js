@@ -2,14 +2,14 @@ import { collection, addDoc } from "firebase/firestore"
 
 import { db } from '../firebase'
 
-const addAnnouncement = async (date, description, linkPdf, announcementText, title) => {
+const addAnnouncement = async (postData) => {
     try {
         const docRef = await addDoc(collection(db, "anunturi"), {
-            data: date,
-            descriere: description,
-            linkPdf: linkPdf,
-            textAnunt: announcementText,
-            titlu: title
+            data: postData.date,
+            descriere: postData.description,
+            linkPdf: postData.linkPdf || null,
+            textAnunt: postData.value,
+            titlu: postData.title
         });
 
         console.log("Document written with ID: ", docRef.id);
