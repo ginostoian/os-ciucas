@@ -23,6 +23,22 @@
 .editorContainer {
     margin-top: 3rem;
     min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.inputGroup input {
+    border: 1px solid #004200;
+    width: fit-content;
+    padding-inline: 2rem;
+    padding-block: .25rem;
 }
 
 .postAdButton {

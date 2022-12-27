@@ -11,12 +11,16 @@ const MDEditor = dynamic(
 );
 
 import classes from './AnuntNou.module.css'
+import addAnnouncement from "../../utils/addAnnouncement"
 
 const poppins = Poppins({ weight: '400' })
 const poppinsBold = Poppins({ weight: '700' })
 
 const AnuntNou = () => {
     const [value, setValue] = useState("**Scrie textul anuntului aici folosind editorul**");
+    const [date, setDate] = useState(null)
+    const [title, setTitle] = useState(null)
+    const [description, setDescription] = useState(null)
     const [loginStatus, setLoginStatus] = useState(null)
     const router = useRouter()
 
@@ -44,14 +48,30 @@ const AnuntNou = () => {
         setLoginStatus(getWithExpiry('isLoggedIn'))
     }, [router])
 
-    console.log(value)
-
     return (
         <div className={`${poppins.className} ${classes.container}`}>
-            <div className={classes.editorContainer}>
+            <form className={classes.editorContainer}>
+                <div className={classes.inputGroup}>
+                    <label htmlFor="date">Data anuntului</label>
+                    <input type="date" name="date" id="date" />
+                </div>
+
+                <div className={classes.inputGroup}>
+                    <label htmlFor="title">Titlul anuntului</label>
+                    <input type="text" name="title" id="title" />
+                </div>
+
+                <div className={classes.inputGroup}>
+                    <label htmlFor="description">Descrierea anuntului</label>
+                    <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" />
+                </div>
+
+                {/* Link PDF */}
+
+
                 <MDEditor value={value} onChange={setValue} height='400px' />
                 <button className={classes.postAdButton}>Posteaza Anunt</button>
-            </div>
+            </form>
         </div>
     )
 }
