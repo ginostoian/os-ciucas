@@ -48,29 +48,36 @@ const AnuntNou = () => {
         setLoginStatus(getWithExpiry('isLoggedIn'))
     }, [router])
 
+    const postAd = (e) => {
+        e.preventDefault()
+        console.log(date, title, description, value)
+    }
+
     return (
         <div className={`${poppins.className} ${classes.container}`}>
             <form className={classes.editorContainer}>
-                <div className={classes.inputGroup}>
-                    <label htmlFor="date">Data anuntului</label>
-                    <input type="date" name="date" id="date" />
+                <div className={classes.inputContainer}>
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="date">Data anuntului</label>
+                        <input type="date" name="date" id="date" />
+                    </div>
+
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="title">Titlul anuntului</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
+
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="description">Descrierea anuntului</label>
+                        <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" />
+                    </div>
+
+                    {/* Link PDF */}
+
                 </div>
-
-                <div className={classes.inputGroup}>
-                    <label htmlFor="title">Titlul anuntului</label>
-                    <input type="text" name="title" id="title" />
-                </div>
-
-                <div className={classes.inputGroup}>
-                    <label htmlFor="description">Descrierea anuntului</label>
-                    <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" />
-                </div>
-
-                {/* Link PDF */}
-
-
                 <MDEditor value={value} onChange={setValue} height='400px' />
-                <button className={classes.postAdButton}>Posteaza Anunt</button>
+
+                <button className={classes.postAdButton} onClick={postAd}>Posteaza Anunt</button>
             </form>
         </div>
     )
