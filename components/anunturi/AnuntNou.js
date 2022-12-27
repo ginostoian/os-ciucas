@@ -18,9 +18,9 @@ const poppinsBold = Poppins({ weight: '700' })
 
 const AnuntNou = () => {
     const [value, setValue] = useState("**Scrie textul anuntului aici folosind editorul**");
-    const [date, setDate] = useState(null)
-    const [title, setTitle] = useState(null)
-    const [description, setDescription] = useState(null)
+    const [date, setDate] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
     const [loginStatus, setLoginStatus] = useState(null)
     const router = useRouter()
 
@@ -48,9 +48,17 @@ const AnuntNou = () => {
         setLoginStatus(getWithExpiry('isLoggedIn'))
     }, [router])
 
+    const handleDateChange = (e) => setDate(e.target.value)
+    const handleTitleChange = (e) => setTitle(e.target.value)
+    const handleDescriptionChange = (e) => setDescription(e.target.value)
+
     const postAd = (e) => {
         e.preventDefault()
         console.log(date, title, description, value)
+        setDate('')
+        setDescription('')
+        setTitle('')
+        setValue('**Scrie textul anuntului aici folosind editorul**')
     }
 
     return (
@@ -59,17 +67,17 @@ const AnuntNou = () => {
                 <div className={classes.inputContainer}>
                     <div className={classes.inputGroup}>
                         <label htmlFor="date">Data anuntului</label>
-                        <input type="date" name="date" id="date" />
+                        <input type="date" name="date" id="date" onChange={handleDateChange} value={date} />
                     </div>
 
                     <div className={classes.inputGroup}>
                         <label htmlFor="title">Titlul anuntului</label>
-                        <input type="text" name="title" id="title" />
+                        <input type="text" name="title" id="title" onChange={handleTitleChange} value={title} />
                     </div>
 
                     <div className={classes.inputGroup}>
                         <label htmlFor="description">Descrierea anuntului</label>
-                        <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" />
+                        <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" onChange={handleDescriptionChange} value={description} />
                     </div>
 
                     {/* Link PDF */}
