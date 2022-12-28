@@ -65,6 +65,7 @@ const AnuntNou = () => {
         setDescription('')
         setTitle('')
         setValue('**Scrie textul anuntului aici folosind editorul**')
+        alert('Anuntul a fost postat')
     }
 
     return (

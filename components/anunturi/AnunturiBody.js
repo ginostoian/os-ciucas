@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Poppins } from "@next/font/google"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, orderBy, query } from "firebase/firestore"
 import { useEffect, useState } from "react"
 
 import classes from './AnunturiBody.module.css'
@@ -17,7 +17,7 @@ const AnunturiBody = (props) => {
     useEffect(() => {
         const getData = async () => {
             const data = []
-            const querySnapshot = await getDocs(collection(db, "anunturi"));
+            const querySnapshot = await getDocs(query(collection(db, "anunturi"), orderBy('data', 'desc')));
             querySnapshot.forEach((doc) => {
                 data.push(doc.data())
             });
