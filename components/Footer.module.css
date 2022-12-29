@@ -1,14 +1,21 @@
 .footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     background-color: #004200;
     color: #F0F3F5;
     padding: 2rem;
+    padding-bottom: 1rem;
 }
 
 .creatorLink {
     color: antiquewhite;
     border-bottom: 1px solid antiquewhite;
     padding-bottom: 2px;
+}
+
+.creatorLink:hover {
+    cursor: pointer;
 }
