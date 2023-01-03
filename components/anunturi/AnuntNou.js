@@ -21,6 +21,7 @@ const AnuntNou = () => {
     const [date, setDate] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [file, setFile] = useState('')
     const [loginStatus, setLoginStatus] = useState(null)
     const router = useRouter()
 
@@ -51,6 +52,7 @@ const AnuntNou = () => {
     const handleDateChange = (e) => setDate(e.target.value)
     const handleTitleChange = (e) => setTitle(e.target.value)
     const handleDescriptionChange = (e) => setDescription(e.target.value)
+    const handleFileChange = (e) => setFile(e.target.files[0])
 
     const postAd = (e) => {
         e.preventDefault()
@@ -65,6 +67,7 @@ const AnuntNou = () => {
         setDescription('')
         setTitle('')
         setValue('**Scrie textul anuntului aici folosind editorul**')
+        setFile('')
         alert('Anuntul a fost postat')
     }
 
@@ -87,7 +90,10 @@ const AnuntNou = () => {
                         <input type="text" name="description" id="description" placeholder="O propozitie care sa descrie anuntul" onChange={handleDescriptionChange} value={description} />
                     </div>
 
-                    {/* Link PDF */}
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="file">Incarca anunt PDF</label>
+                        <input type="file" name="file" id="file" accept="application/pdf" onChange={handleFileChange} />
+                    </div>
 
                 </div>
                 <MDEditor value={value} onChange={setValue} height='400px' />
