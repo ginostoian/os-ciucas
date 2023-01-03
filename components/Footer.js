@@ -10,7 +10,7 @@ const Footer = () => {
 
     const handleAdminClick = (e) => {
         e.preventDefault()
-        router.push('/admin/login')
+        router.push('/admin')
     }
 
     return (
