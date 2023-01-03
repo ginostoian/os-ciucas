@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { ref, uploadBytesResumable } from "firebase/storage";
 import { Poppins } from '@next/font/google'
 import dynamic from "next/dynamic";
 import "@uiw/react-md-editor/markdown-editor.css";
@@ -10,6 +11,7 @@ const MDEditor = dynamic(
     { ssr: false }
 );
 
+import { storage } from "../../firebase";
 import classes from './AnuntNou.module.css'
 import addAnnouncement from "../../utils/addAnnouncement"
 
@@ -17,12 +19,18 @@ const poppins = Poppins({ weight: '400' })
 const poppinsBold = Poppins({ weight: '700' })
 
 const AnuntNou = () => {
+    // State for tracking form inputs
     const [value, setValue] = useState("**Scrie textul anuntului aici folosind editorul**");
     const [date, setDate] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [file, setFile] = useState('')
+    const [fileUrl, setFileUrl] = useState('')
+    // State for tracking upload progress
+    const [percent, setPercent] = useState(0)
+    // State for tracking login status
     const [loginStatus, setLoginStatus] = useState(null)
+
     const router = useRouter()
 
     useEffect(() => {
@@ -54,20 +62,52 @@ const AnuntNou = () => {
     const handleDescriptionChange = (e) => setDescription(e.target.value)
     const handleFileChange = (e) => setFile(e.target.files[0])
 
+    const handleUpload = () => {
+        if (!file) {
+            alert('Ataseaza document inainte de a posta anuntul!')
+        }
+
+        const storageRef = ref(storage, `/files/${file.name}`)
+        const uploadTask = uploadBytesResumable(storageRef, file)
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const percent = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+
+                // update progress
+                setPercent(percent);
+            },
+            (err) => console.log(err),
+            () => {
+                // download url
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    setFileUrl(url)
+                });
+            }
+        );
+    }
+
     const postAd = (e) => {
         e.preventDefault()
         const postData = {
             date,
             title,
             description,
-            value
+            value,
+            fileUrl
         }
         addAnnouncement(postData)
+        // Reset form after submission
         setDate('')
         setDescription('')
         setTitle('')
         setValue('**Scrie textul anuntului aici folosind editorul**')
         setFile('')
+        setFileUrl('')
+        // Let user know that ad has been posted
         alert('Anuntul a fost postat')
     }
 
