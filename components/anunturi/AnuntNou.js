@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { ref, uploadBytesResumable } from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { Poppins } from '@next/font/google'
 import dynamic from "next/dynamic";
 import "@uiw/react-md-editor/markdown-editor.css";
@@ -62,7 +62,7 @@ const AnuntNou = () => {
     const handleDescriptionChange = (e) => setDescription(e.target.value)
     const handleFileChange = (e) => setFile(e.target.files[0])
 
-    const handleUpload = () => {
+    const handleUpload = async () => {
         if (!file) {
             alert('Ataseaza document inainte de a posta anuntul!')
         }
@@ -85,13 +85,13 @@ const AnuntNou = () => {
                 // download url
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                     setFileUrl(url)
+                    console.log(url)
                 });
             }
         );
     }
 
     const postAd = (e) => {
-        e.preventDefault()
         const postData = {
             date,
             title,
@@ -99,6 +99,7 @@ const AnuntNou = () => {
             value,
             fileUrl
         }
+
         addAnnouncement(postData)
         // Reset form after submission
         setDate('')
@@ -109,6 +110,12 @@ const AnuntNou = () => {
         setFileUrl('')
         // Let user know that ad has been posted
         alert('Anuntul a fost postat')
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleUpload()
+        setTimeout(postAd, 3000)
     }
 
     return (
@@ -138,7 +145,7 @@ const AnuntNou = () => {
                 </div>
                 <MDEditor value={value} onChange={setValue} height='400px' />
 
-                <button className={classes.postAdButton} onClick={postAd}>Posteaza Anunt</button>
+                <button className={classes.postAdButton} onClick={handleSubmit}>Posteaza Anunt</button>
             </form>
         </div>
     )

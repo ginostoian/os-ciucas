@@ -7,7 +7,7 @@ const addAnnouncement = async (postData) => {
         const docRef = await addDoc(collection(db, "anunturi"), {
             data: postData.date,
             descriere: postData.description,
-            linkPdf: postData.fileUrl || null,
+            linkPdf: postData.fileUrl,
             textAnunt: postData.value,
             titlu: postData.title
         });

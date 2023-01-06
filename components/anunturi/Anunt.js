@@ -19,7 +19,7 @@ const Anunt = ({ anunt }) => {
             <p onClick={() => setIsClicked(true)} className={classes.anuntDescription}>{anunt.descriere}</p>
             <div className={classes.anuntFooter}>
                 <p className={classes.anuntDate}>{anunt.data}</p>
-                <a target='_blank' rel='noreferrer' className={classes.anuntLink} href="https://www.osbucegipiatracraiuluiciucas.ro/wp-content/uploads/2022/10/Anunt-17.10.2022.pdf">Descarca</a>
+                <a target='_blank' rel='noreferrer' className={classes.anuntLink} href={anunt.linkPdf}>Descarca</a>
             </div>
 
             {isClicked && <AnuntOverlay text={anunt.textAnunt} onClose={closeAdDetails} />}
