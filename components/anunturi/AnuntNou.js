@@ -115,7 +115,7 @@ const AnuntNou = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         handleUpload()
-        setTimeout(postAd, 3000)
+        setTimeout(postAd, 6000)
     }
 
     return (
