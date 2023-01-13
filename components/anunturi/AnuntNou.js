@@ -85,19 +85,19 @@ const AnuntNou = () => {
                 // download url
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                     setFileUrl(url)
-                    console.log(url)
+                    postAd(url)
                 });
             }
         );
     }
 
-    const postAd = (e) => {
+    const postAd = (url) => {
         const postData = {
             date,
             title,
             description,
             value,
-            fileUrl
+            fileUrl: url
         }
 
         addAnnouncement(postData)
@@ -115,7 +115,6 @@ const AnuntNou = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         handleUpload()
-        setTimeout(postAd, 6000)
     }
 
     return (
