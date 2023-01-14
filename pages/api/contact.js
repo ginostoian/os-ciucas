@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (req, res) {
-    const nodeMailer = require('nodeMailer')
+    const nodeMailer = require('nodemailer')
     const transporter = nodeMailer.createTransport({
         port: 465,
         host: "smtp.gmail.com",
