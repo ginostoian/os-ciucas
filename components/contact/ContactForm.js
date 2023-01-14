@@ -48,6 +48,7 @@ const ContactForm = () => {
         setEmail('')
         setPhone('')
         setMessage('')
+        alert('Mesajul dumneavoastra a fost trimis!')
         console.log(formData)
     }
     return (
