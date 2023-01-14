@@ -44,11 +44,25 @@ const ContactForm = () => {
         if (message) {
             formData.message = message
         }
-        setName('')
-        setEmail('')
-        setPhone('')
-        setMessage('')
-        alert('Mesajul dumneavoastra a fost trimis!')
+
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then(res => {
+            console.log('Response Received')
+            if (res.status === 200) {
+                console.log('Response Succeded')
+                setName('')
+                setEmail('')
+                setPhone('')
+                setMessage('')
+                alert('Mesajul dumneavoastra a fost trimis!')
+            }
+        })
         console.log(formData)
     }
     return (
